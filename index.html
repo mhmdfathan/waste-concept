@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Waste Tracking Management System</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Waste Tracking Management</h1>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#track">Track Waste</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="dashboard">
+                <h2>Dashboard</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Recyclable Waste</h3>
+                        <p id="recyclableAmount">0 kg</p>
+                    </div>
+                    <div class="card">
+                        <h3>Non-Recyclable Waste</h3>
+                        <p id="nonRecyclableAmount">0 kg</p>
+                    </div>
+                    <div class="card">
+                        <h3>Total Waste</h3>
+                        <p id="totalAmount">0 kg</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="track">
+                <h2>Track Your Waste</h2>
+                <form id="wasteForm">
+                    <input type="hidden" id="editIndex" value="" />
+                    <label for="wasteType">Waste Type</label>
+                    <select id="wasteType" name="wasteType" required>
+                        <option value="recyclable">Recyclable</option>
+                        <option value="non-recyclable">Non-Recyclable</option>
+                    </select>
+
+                    <label for="wasteAmount">Amount (kg)</label>
+                    <input
+                        type="number"
+                        id="wasteAmount"
+                        name="wasteAmount"
+                        placeholder="Enter weight in kg"
+                        required
+                    />
+
+                    <button type="submit">Add Waste</button>
+                </form>
+                <div id="wasteHistory">
+                    <h3>Waste History</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Amount (kg)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="about">
+                <h2>About</h2>
+                <p>
+                    Our Waste Tracking Management System helps you monitor and
+                    manage your waste effectively.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Wastetrack Inc. All rights reserved.</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
