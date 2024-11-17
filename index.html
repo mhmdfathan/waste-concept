@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Waste Tracking Management System</title>
         <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
     </head>
     <body>
         <header>
@@ -40,7 +41,9 @@
             <section id="track" class="section">
                 <h2>Track Your Waste</h2>
                 <form id="wasteForm">
+                    <!-- Hidden input for edit index -->
                     <input type="hidden" id="editIndex" value="" />
+
                     <label for="wasteType">Waste Type</label>
                     <select id="wasteType" name="wasteType" required>
                         <option value="recyclable">Recyclable</option>
@@ -58,6 +61,7 @@
 
                     <button type="submit">Add Waste</button>
                 </form>
+
                 <div id="wasteHistory">
                     <h3>Waste History</h3>
                     <table>

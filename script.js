@@ -4,6 +4,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const recyclableAmount = document.getElementById('recyclableAmount');
     const nonRecyclableAmount = document.getElementById('nonRecyclableAmount');
     const totalAmount = document.getElementById('totalAmount');
+    const navLinks = document.querySelectorAll('header nav a');
+
+    if (
+        !wasteForm ||
+        !historyTableBody ||
+        !recyclableAmount ||
+        !nonRecyclableAmount ||
+        !totalAmount
+    ) {
+        console.error('Required DOM elements not found');
+        return;
+    }
+
+    // Enhanced smooth scroll function with proper timing and error handling
+    function smoothScrollToElement(elementId) {
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.warn(`Element with id '${elementId}' not found`);
+            return;
+        }
+
+        const headerHeight = 80; // Match the CSS header height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition =
+            elementPosition + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: 'smooth',
+        });
+    }
+
+    // Handle navigation links
+    navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').slice(1);
+            smoothScrollToElement(targetId);
+            // Update URL without triggering scroll
+            history.pushState(null, '', `#${targetId}`);
+        });
+    });
+
+    // Handle initial hash if present
+    if (window.location.hash) {
+        const targetId = window.location.hash.slice(1);
+        requestAnimationFrame(() => {
+            smoothScrollToElement(targetId);
+        });
+    }
 
     // Load data from local storage
     const savedWaste = JSON.parse(localStorage.getItem('wasteData')) || [];
@@ -12,12 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDashboard(savedWaste);
     renderWasteHistory(savedWaste);
 
-    // Add event listener for form submission
+    // Rest of the existing code remains the same...
     wasteForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
         const wasteType = document.getElementById('wasteType').value;
-        const wasteAmount = document.getElementById('wasteAmount').value;
+        const wasteAmount = Number(
+            document.getElementById('wasteAmount').value,
+        );
         const editIndex = document.getElementById('editIndex').value;
 
         if (!wasteAmount || wasteAmount <= 0) {
@@ -27,26 +79,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const wasteEntry = { type: wasteType, amount: Number(wasteAmount) };
 
         if (editIndex !== '') {
-            // Update existing entry
             savedWaste[editIndex] = wasteEntry;
             document.getElementById('editIndex').value = '';
         } else {
-            // Add new entry
             savedWaste.push(wasteEntry);
         }
 
-        // Save to local storage
         localStorage.setItem('wasteData', JSON.stringify(savedWaste));
 
-        // Update UI
-        renderWasteHistory(savedWaste);
-        updateDashboard(savedWaste);
-
-        // Clear form
-        wasteForm.reset();
+        requestAnimationFrame(() => {
+            renderWasteHistory(savedWaste);
+            updateDashboard(savedWaste);
+            wasteForm.reset();
+        });
     });
 
-    // Function to update the dashboard
     function updateDashboard(data) {
         const recyclable = data
             .filter((waste) => waste.type === 'recyclable')
@@ -63,43 +110,52 @@ document.addEventListener('DOMContentLoaded', () => {
         totalAmount.textContent = `${total} kg`;
     }
 
-    // Function to render waste history table
     function renderWasteHistory(data) {
         historyTableBody.innerHTML = '';
         data.forEach((waste, index) => {
             const row = document.createElement('tr');
-
             row.innerHTML = `
                 <td>${capitalize(waste.type)}</td>
                 <td>${waste.amount} kg</td>
                 <td>
-                    <button onclick="editEntry(${index})">Edit</button>
-                    <button onclick="deleteEntry(${index})">Delete</button>
+                    <button data-index="${index}">Edit</button>
+                    <button data-index="${index}">Delete</button>
                 </td>
             `;
-
             historyTableBody.appendChild(row);
         });
     }
 
-    // Global functions for edit and delete
-    window.editEntry = (index) => {
-        const waste = savedWaste[index];
-        document.getElementById('wasteType').value = waste.type;
-        document.getElementById('wasteAmount').value = waste.amount;
-        document.getElementById('editIndex').value = index;
-    };
+    historyTableBody.addEventListener('click', (event) => {
+        if (event.target.tagName === 'BUTTON') {
+            const index = parseInt(event.target.dataset.index);
+            if (index >= 0 && index < savedWaste.length) {
+                if (event.target.textContent === 'Edit') {
+                    const waste = savedWaste[index];
+                    document.getElementById('wasteType').value = waste.type;
+                    document.getElementById('wasteAmount').value = waste.amount;
+                    document.getElementById('editIndex').value = index;
 
-    window.deleteEntry = (index) => {
-        if (confirm('Are you sure you want to delete this entry?')) {
-            savedWaste.splice(index, 1);
-            localStorage.setItem('wasteData', JSON.stringify(savedWaste));
-            renderWasteHistory(savedWaste);
-            updateDashboard(savedWaste);
+                    requestAnimationFrame(() => {
+                        smoothScrollToElement('track');
+                    });
+                } else if (event.target.textContent === 'Delete') {
+                    if (
+                        confirm('Are you sure you want to delete this entry?')
+                    ) {
+                        savedWaste.splice(index, 1);
+                        localStorage.setItem(
+                            'wasteData',
+                            JSON.stringify(savedWaste),
+                        );
+                        renderWasteHistory(savedWaste);
+                        updateDashboard(savedWaste);
+                    }
+                }
+            }
         }
-    };
+    });
 
-    // Helper function to capitalize waste type
     function capitalize(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }

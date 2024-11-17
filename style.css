@@ -213,39 +213,39 @@ footer {
     background: #333;
     color: white;
     text-align: center;
-    padding: 1em 0;
-    font-size: 0.9em;
-    margin-top: 3em;
+    padding: 2em 0;
+    font-size: 1rem;
+    margin-top: 4em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    bottom: 0;
+}
+
+footer p {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #28a745;
 }
 
 /* General smooth scrolling */
 html {
     scroll-behavior: smooth;
-}
-
-/* Header navigation styling */
-header nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 2em;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-header nav ul li a {
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-header nav ul li a:hover {
-    color: #c3f5c8;
+    --header-height: 80px;
 }
 
 /* Offset adjustment for sections */
 .section {
-    padding-top: 100px; /* Adjust based on header height */
-    margin-top: -100px; /* Compensates for smooth scrolling header overlap */
+    scroll-margin-top: var(--header-height);
+    padding: var(--header-height) 0 2em 0;
+    margin: 0;
 }
