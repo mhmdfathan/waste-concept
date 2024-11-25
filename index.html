@@ -13,94 +13,147 @@
     </head>
     <body>
         <header>
-            <h1>Waste Tracking Management</h1>
+            <div class="header-content">
+                <h1>Waste Tracking Management</h1>
+
+                    <!-- <div class="profile-nav"> -->
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a>
+                                        <i class="fas fa-user"></i>
+                                        Profile
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    <!-- <a href="./user.html">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a> -->
+                </nav>
+                <!-- </div> -->
+            </div>s
             <nav>
                 <ul>
-                    <li></li>
-                    <div class="nav-links">
-                        <li><a href="#dashboard">Dashboard</a></li>
-                        <li><a href="#track">Track Waste</a></li>
-                        <li><a href="./ecommerce.html">Marketplace</a></li>
-                        <li><a href="./stats.html">Statistics</a></li>
-                        <li><a href="#about">About</a></li>
-                    </div>
-                    <li class="user-nav">
-                        <a href="./user.html">
-                            <i class="fas fa-user"></i>
-                            Profile
+                    <li>
+                        <a href="#dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Dashboard
                         </a>
                     </li>
+                    <li>
+                        <a href="#track">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Track Waste
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./ecommerce.html">
+                            <i class="fas fa-store"></i>
+                            Marketplace
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./stats.html">
+                            <i class="fas fa-chart-bar"></i>
+                            Statistics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about">
+                            <i class="fas fa-info-circle"></i>
+                            About
+                        </a>
+                    </li>
+                    <li>
+                                    <a href="./user.html">
+                                        <i class="fas fa-user"></i>
+                                        Profile
+                                    </a>
+                                </li>
                 </ul>
             </nav>
         </header>
 
         <main>
             <section id="dashboard" class="section">
-                <h2>Dashboard</h2>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Recyclable Waste</h3>
-                        <p id="recyclableAmount">0 kg</p>
-                    </div>
-                    <div class="card">
-                        <h3>Non-Recyclable Waste</h3>
-                        <p id="nonRecyclableAmount">0 kg</p>
-                    </div>
-                    <div class="card">
-                        <h3>Total Waste</h3>
-                        <p id="totalAmount">0 kg</p>
+                <div class="content-wrapper">
+                    <!-- <h2 class="card">Dashboard</h2> -->
+                    <h2>Dashboard</h2>
+
+                    <div class="cards">
+                        <div class="card">
+                            <h3>Recyclable Waste</h3>
+                            <p id="recyclableAmount">0 kg</p>
+                        </div>
+                        <div class="card">
+                            <h3>Non-Recyclable Waste</h3>
+                            <p id="nonRecyclableAmount">0 kg</p>
+                        </div>
+                        <div class="card">
+                            <h3>Total Waste</h3>
+                            <p id="totalAmount">0 kg</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="track" class="section">
-                <h2>Track Your Waste</h2>
-                <form id="wasteForm">
-                    <!-- Hidden input for edit index -->
-                    <input type="hidden" id="editIndex" value="" />
+                <div class="content-wrapper">
+                    <h2>Track Your Waste</h2>
+                    <form id="wasteForm">
+                        <!-- Hidden input for edit index -->
+                        <input type="hidden" id="editIndex" value="" />
 
-                    <label for="wasteType">Waste Type</label>
-                    <select id="wasteType" name="wasteType" required>
-                        <option value="recyclable">Recyclable</option>
-                        <option value="non-recyclable">Non-Recyclable</option>
-                    </select>
+                        <label for="wasteType">Waste Type</label>
+                        <select id="wasteType" name="wasteType" required>
+                            <option value="recyclable">Recyclable</option>
+                            <option value="non-recyclable">
+                                Non-Recyclable
+                            </option>
+                        </select>
 
-                    <label for="wasteAmount">Amount (kg)</label>
-                    <input
-                        type="number"
-                        id="wasteAmount"
-                        name="wasteAmount"
-                        placeholder="Enter weight in kg"
-                        required
-                    />
+                        <label for="wasteAmount">Amount (kg)</label>
+                        <input
+                            type="number"
+                            id="wasteAmount"
+                            name="wasteAmount"
+                            placeholder="Enter weight in kg"
+                            required
+                        />
 
-                    <button type="submit">Add Waste</button>
-                </form>
+                        <button type="submit">Add Waste</button>
+                    </form>
 
-                <div id="wasteHistory">
-                    <h3>Waste History</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Type</th>
-                                <th>Amount (kg)</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="historyTableBody"></tbody>
-                    </table>
+                    <!-- <div class="content-wrapper"><h3>Waste History</h3></div> -->
+                    <div id="wasteHistory">
+                        <h3>Waste History</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Amount (kg)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTableBody"></tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
 
             <section id="about" class="section">
-                <h2>About</h2>
-                <p>
-                    Trash It adalah aplikasi yang membantu Anda melacak dan
-                    mengelola sampah Anda. Dengan aplikasi ini, Anda dapat
-                    melihat jumlah sampah yang dihasilkan, memantau jenis sampah
-                    yang dihasilkan, dan mengelola sampah Anda dengan lebih
-                    efisien. Made by jagoantimbangjuara1
-                </p>
+                <div class="content-wrapper">
+                    <h2>About</h2>
+                    <p>
+                        Trash It adalah aplikasi yang membantu Anda melacak dan
+                        mengelola sampah Anda. Dengan aplikasi ini, Anda dapat
+                        melihat jumlah sampah yang dihasilkan, memantau jenis
+                        sampah yang dihasilkan, dan mengelola sampah Anda dengan
+                        lebih efisien. Made by jagoantimbangjuara1
+                    </p>
+                </div>
             </section>
         </main>
 
