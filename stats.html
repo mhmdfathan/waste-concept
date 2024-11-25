@@ -16,21 +16,36 @@
     </head>
     <body>
         <header>
-            <div class="header-content">
-                <h1>Trash It Statistics</h1>
-            </div>
+            <!-- <div class="header-content"> -->
+            <h1>Trash It Statistics</h1>
+            <!-- </div> -->
             <nav>
                 <ul>
-                    <li></li>
                     <div class="nav-links">
-                        <li><a href="./index.html">← Back to Dashboard</a></li>
-                        <li><a href="#price">Price List</a></li>
-                        <li><a href="#statistics">Statistics</a></li>
-                        <li><a href="./ecommerce.html">Marketplace</a></li>
+                        <li>
+                            <a href="./index.html">
+                                <i class="fas fa-arrow-left"></i> Back to
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#price">
+                                <i class="fas fa-dollar-sign"></i> Price List
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#statistics">
+                                <i class="fas fa-chart-bar"></i> Statistics
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./ecommerce.html">
+                                <i class="fas fa-store"></i> Marketplace
+                            </a>
+                        </li>
                         <li class="user-nav">
                             <a href="./user.html">
-                                <i class="fas fa-user"></i>
-                                Profile
+                                <i class="fas fa-user"></i> Profile
                             </a>
                         </li>
                     </div>
@@ -40,64 +55,70 @@
 
         <main>
             <section id="price" class="section">
-                <h2>Current Waste Prices</h2>
-                <div class="price-grid">
-                    <div class="price-card">
-                        <h3>Organic Waste</h3>
-                        <p class="price">Rp 2.000/kg</p>
-                        <p class="update-time">Last updated: Today 10:00</p>
+                <div class="content-wrapper">
+                    <h2>Current Waste Prices</h2>
+                    <div class="price-grid">
+                        <div class="price-card">
+                            <h3>Organic Waste</h3>
+                            <p class="price">Rp 2.000/kg</p>
+                            <p class="update-time">Last updated: Today 10:00</p>
+                        </div>
+                        <div class="price-card">
+                            <h3>Plastic</h3>
+                            <p class="price">Rp 4.000/kg</p>
+                            <p class="update-time">Last updated: Today 10:00</p>
+                        </div>
+                        <!-- Add more price cards -->
                     </div>
-                    <div class="price-card">
-                        <h3>Plastic</h3>
-                        <p class="price">Rp 4.000/kg</p>
-                        <p class="update-time">Last updated: Today 10:00</p>
-                    </div>
-                    <!-- Add more price cards -->
                 </div>
             </section>
 
             <section id="statistics" class="section">
-                <h2>Waste Statistics</h2>
-                <div class="stats-grid">
-                    <div class="chart-container">
-                        <h3>Monthly Collection</h3>
-                        <canvas id="monthlyChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <h3>Waste Distribution</h3>
-                        <canvas id="distributionChart"></canvas>
-                    </div>
-                    <div class="stats-card">
-                        <h3>Active Users</h3>
-                        <p class="stat-number">1,234</p>
-                        <p class="stat-label">Total Active Users</p>
-                    </div>
-                    <div class="stats-card">
-                        <h3>Average Contribution</h3>
-                        <p class="stat-number">5.2 kg</p>
-                        <p class="stat-label">Per User/Month</p>
+                <div class="content-wrapper">
+                    <h2>Waste Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="chart-container">
+                            <h3>Monthly Collection</h3>
+                            <canvas id="monthlyChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Waste Distribution</h3>
+                            <canvas id="distributionChart"></canvas>
+                        </div>
+                        <div class="stats-card">
+                            <h3>Active Users</h3>
+                            <p class="stat-number">1,234</p>
+                            <p class="stat-label">Total Active Users</p>
+                        </div>
+                        <div class="stats-card">
+                            <h3>Average Contribution</h3>
+                            <p class="stat-number">5.2 kg</p>
+                            <p class="stat-label">Per User/Month</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="contact" class="section">
-                <h2>Contact Admin</h2>
-                <div class="contact-grid">
-                    <a href="mailto:admin@trashit.com" class="contact-card">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>admin@trashit.com</p>
-                    </a>
-                    <a href="https://wa.me/1234567890" class="contact-card">
-                        <i class="fab fa-whatsapp"></i>
-                        <h3>WhatsApp</h3>
-                        <p>+62 123-4567-890</p>
-                    </a>
-                    <a href="#" class="contact-card">
-                        <i class="fab fa-instagram"></i>
-                        <h3>Instagram</h3>
-                        <p>@trashit_id</p>
-                    </a>
+                <div class="content-wrapper">
+                    <h2>Contact Admin</h2>
+                    <div class="contact-grid">
+                        <a href="mailto:admin@trashit.com" class="contact-card">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>admin@trashit.com</p>
+                        </a>
+                        <a href="https://wa.me/1234567890" class="contact-card">
+                            <i class="fab fa-whatsapp"></i>
+                            <h3>WhatsApp</h3>
+                            <p>+62 123-4567-890</p>
+                        </a>
+                        <a href="#" class="contact-card">
+                            <i class="fab fa-instagram"></i>
+                            <h3>Instagram</h3>
+                            <p>@trashit_id</p>
+                        </a>
+                    </div>
                 </div>
             </section>
         </main>
