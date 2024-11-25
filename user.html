@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TrashIt User Profile</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="user.css" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <header>
+            <h1>User Profile</h1>
+            <nav>
+                <ul>
+                    <div class="nav-links">
+                        <li><a href="./index.html">← Back to Dashboard</a></li>
+                        <li><a href="./ecommerce.html">Marketplace</a></li>
+                        <li><a href="./stats.html">Statistics</a></li>
+                    </div>
+                    <li class="user-nav">
+                        <a href="./user.html">
+                            <i class="fas fa-user"></i>
+                            Profile
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="profile-section">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img
+                            src="https://i.discogs.com/_kK2FFfyrhNnbdTjCGMqfy_2gsMw120aUhKTb3M9kyE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzMTk5/NTg3LTE1NDk4MTEy/MjMtNTczMC5qcGVn.jpeg"
+                            height="120"
+                            width="120"
+                            alt="Profile Picture"
+                            id="avatar"
+                        />
+                        <button class="change-avatar">Change Picture</button>
+                    </div>
+                    <div class="role-badge" id="roleBadge">Nasabah</div>
+                </div>
+
+                <form id="profileForm" class="profile-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea
+                            id="address"
+                            name="address"
+                            rows="3"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select id="role" name="role" required>
+                            <option value="nasabah">Nasabah</option>
+                            <option value="pengepul">Pengepul</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="save-button">
+                        Save Changes
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                &copy; 2024 TrashIt Inc. All rights reserved. Made by
+                jagoantimbangjuara1
+            </p>
+        </footer>
+
+        <script src="user.js"></script>
+    </body>
+</html>

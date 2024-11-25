@@ -1,0 +1,101 @@
+.profile-section {
+    max-width: 600px; /* Reduced from 800px */
+    margin: 3em auto; /* Increased from 2em */
+    padding: 3em; /* Increased from 2.5em */
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3em;
+    padding: 0 1.5em; /* Increased from 1em */
+}
+
+.profile-avatar {
+    text-align: center;
+    height: 160px;
+    width: 160px;
+    display: grid;
+}
+
+.profile-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1em;
+}
+
+.change-avatar {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.change-avatar:hover {
+    background: #218838;
+}
+
+.role-badge {
+    background: #28a745;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.profile-form {
+    max-width: 500px; /* Added max-width */
+    margin: 0 auto; /* Center form */
+    padding: 0 1.5em; /* Increased from 1em */
+}
+
+.form-group {
+    margin-bottom: 2em; /* Increased from 1.5em */
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #28a745;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.save-button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 1em;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.save-button:hover {
+    background: #218838;
+}
