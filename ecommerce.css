@@ -1,0 +1,112 @@
+/* E-commerce specific styles */
+.filters {
+    margin: 2em auto;
+    max-width: 1200px;
+    display: flex;
+    gap: 1em;
+}
+
+.filters input,
+.filters select {
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.filters input {
+    flex: 1;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    padding: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1.5em;
+}
+
+.product-info h3 {
+    margin: 0 0 0.5em 0;
+    color: #333;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #28a745;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 1em;
+}
+
+.add-to-cart {
+    width: 100%;
+    padding: 0.8em;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: #218838;
+}
+
+.fa-shopping-cart {
+    margin-right: 0.5em;
+}
+
+/* Add to existing ecommerce.css */
+.nav-back {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.nav-back i {
+    font-size: 1.2em;
+}
+
+/* Ensure proper spacing with shared styles */
+main {
+    padding-top: var(--header-height);
+}
+
+/* Add transition for cart feedback */
+.add-to-cart {
+    transition: all 0.3s ease;
+}
+
+.add-to-cart.added {
+    background: #1e7e34;
+    transform: scale(0.95);
+}

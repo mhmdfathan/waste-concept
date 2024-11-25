@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WasteTrack Marketplace</title>
+        <!-- Include both stylesheets -->
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="ecommerce.css" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <header>
+            <h1>WasteTrack Marketplace</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">← Back to Dashboard</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li>
+                        <a href="#cart"
+                            ><i class="fas fa-shopping-cart"></i> Cart (0)</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="filters">
+                <input type="text" placeholder="Search products..." />
+                <select>
+                    <option value="">All Categories</option>
+                    <option value="recyclable">Recyclable Materials</option>
+                    <option value="compost">Compost</option>
+                    <option value="equipment">Recycling Equipment</option>
+                </select>
+            </section>
+
+            <section id="products" class="product-grid">
+                <div class="product-card">
+                    <img
+                        src="https://via.placeholder.com/300x200"
+                        alt="Recycled Paper"
+                    />
+                    <div class="product-info">
+                        <h3>Recycled Paper Pack</h3>
+                        <p class="price">Rp 50.000</p>
+                        <p class="description">
+                            High-quality recycled paper, perfect for crafts and
+                            printing.
+                        </p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img
+                        src="https://via.placeholder.com/300x200"
+                        alt="Compost Bin"
+                    />
+                    <div class="product-info">
+                        <h3>Compost Bin</h3>
+                        <p class="price">Rp 250.000</p>
+                        <p class="description">
+                            Large capacity compost bin for organic waste.
+                        </p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img
+                        src="https://via.placeholder.com/300x200"
+                        alt="Recycled Plastic Pellets"
+                    />
+                    <div class="product-info">
+                        <h3>Recycled Plastic Pellets</h3>
+                        <p class="price">Rp 75.000/kg</p>
+                        <p class="description">
+                            High-grade recycled plastic pellets for
+                            manufacturing.
+                        </p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img
+                        src="https://via.placeholder.com/300x200"
+                        alt="Metal Scraps"
+                    />
+                    <div class="product-info">
+                        <h3>Metal Scraps Bundle</h3>
+                        <p class="price">Rp 100.000/kg</p>
+                        <p class="description">
+                            Sorted metal scraps ready for recycling.
+                        </p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img
+                        src="https://via.placeholder.com/300x200"
+                        alt="Glass Cullet"
+                    />
+                    <div class="product-info">
+                        <h3>Glass Cullet</h3>
+                        <p class="price">Rp 45.000/kg</p>
+                        <p class="description">
+                            Crushed recycled glass for various applications.
+                        </p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img
+                        src="https://via.placeholder.com/300x200"
+                        alt="Recycling Bins"
+                    />
+                    <div class="product-info">
+                        <h3>Sorting Bins Set</h3>
+                        <p class="price">Rp 350.000</p>
+                        <p class="description">
+                            Set of 3 color-coded bins for waste sorting.
+                        </p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 WasteTrack Marketplace. All rights reserved.</p>
+        </footer>
+
+        <script src="./ecommerce.js"></script>
+    </body>
+</html>

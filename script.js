@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const recyclableAmount = document.getElementById('recyclableAmount');
     const nonRecyclableAmount = document.getElementById('nonRecyclableAmount');
     const totalAmount = document.getElementById('totalAmount');
-    const navLinks = document.querySelectorAll('header nav a');
 
     if (
         !wasteForm ||
@@ -17,44 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Enhanced smooth scroll function with proper timing and error handling
-    function smoothScrollToElement(elementId) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.warn(`Element with id '${elementId}' not found`);
-            return;
-        }
-
-        const headerHeight = 80; // Match the CSS header height
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition =
-            elementPosition + window.pageYOffset - headerHeight;
-
-        window.scrollTo({
-            top: Math.max(0, offsetPosition),
-            behavior: 'smooth',
-        });
-    }
-
-    // Handle navigation links
-    navLinks.forEach((link) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').slice(1);
-            smoothScrollToElement(targetId);
-            // Update URL without triggering scroll
-            history.pushState(null, '', `#${targetId}`);
-        });
-    });
-
-    // Handle initial hash if present
-    if (window.location.hash) {
-        const targetId = window.location.hash.slice(1);
-        requestAnimationFrame(() => {
-            smoothScrollToElement(targetId);
-        });
-    }
-
     // Load data from local storage
     const savedWaste = JSON.parse(localStorage.getItem('wasteData')) || [];
 
@@ -62,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDashboard(savedWaste);
     renderWasteHistory(savedWaste);
 
-    // Rest of the existing code remains the same...
+    // Handle form submission
     wasteForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -87,11 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         localStorage.setItem('wasteData', JSON.stringify(savedWaste));
 
-        requestAnimationFrame(() => {
-            renderWasteHistory(savedWaste);
-            updateDashboard(savedWaste);
-            wasteForm.reset();
-        });
+        renderWasteHistory(savedWaste);
+        updateDashboard(savedWaste);
+        wasteForm.reset();
     });
 
     function updateDashboard(data) {
@@ -135,10 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('wasteType').value = waste.type;
                     document.getElementById('wasteAmount').value = waste.amount;
                     document.getElementById('editIndex').value = index;
-
-                    requestAnimationFrame(() => {
-                        smoothScrollToElement('track');
-                    });
                 } else if (event.target.textContent === 'Delete') {
                     if (
                         confirm('Are you sure you want to delete this entry?')
