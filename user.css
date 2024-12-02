@@ -60,6 +60,8 @@
 
 .form-group {
     margin-bottom: 2em; /* Increased from 1.5em */
+    padding: 1em 2em 0 0;
+    display: block;
 }
 
 .form-group label {
@@ -98,4 +100,26 @@
 
 .save-button:hover {
     background: #218838;
+}
+
+textarea,
+input,
+select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1em; /* Reduced margin for smaller gap */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+textarea {
+    height: auto;
+    min-height: 3em;
+    resize: none;
+    max-height: 12em;
+}
+
+.form-group {
+    width: 100%; /* Reduced margin for smaller gap */
 }
