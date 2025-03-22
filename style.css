@@ -7,7 +7,7 @@ body {
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
-    background: url('/asset/trashit.jpg') no-repeat center center fixed;
+    /* background: url('/asset/trashit.jpg') no-repeat center center fixed; */
     background-size: cover;
 }
 
